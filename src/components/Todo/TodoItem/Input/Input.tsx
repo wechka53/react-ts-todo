@@ -38,20 +38,20 @@ export default class Input extends React.Component<Props, State> {
         );
     }
 
-    handleOnChange = (event: React.SyntheticEvent<HTMLInputElement>) => {
+    handleOnChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
         const text = event.currentTarget.value;
         this.setState({text});
     }
 
-    inputLostFocus = () => {
+    inputLostFocus = (): void => {
         const {text} = this.props;
         this.setState({text});
         this.props.toggleEditing(false);
     }
 
-    handleKeyPress = event => {
+    handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>): void => {
         if (event.key === 'Enter') {
-            this.props.updateTodo(event.target.value);
+            this.props.updateTodo(this.state.text);
             this.props.toggleEditing();
         }
     }
