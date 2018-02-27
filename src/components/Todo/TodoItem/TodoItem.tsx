@@ -53,7 +53,7 @@ export default class TodoItem extends React.Component<Props, State> {
                     <Label
                         buttonClassNames={ buttonClassNames }
                         removeTodo={ this.handleRemoveItem }
-                        handleDoubleClick={ this.handleDoubleClick }
+                        handleDoubleClick={ this.handleEdit }
                     >
                         { this.props.text }
                     </Label>
@@ -73,10 +73,6 @@ export default class TodoItem extends React.Component<Props, State> {
 
     handleRemoveItem = (): void => {
         this.props.removeTodo(this.props.id);
-    }
-
-    handleDoubleClick = (event: React.SyntheticEvent<HTMLLabelElement>) => {
-        this.handleEdit(true);
     }
 
     handleUpdateItem = (text: string): void => {
