@@ -7,6 +7,7 @@ interface Props {
     removeTodo: () => void;
     toggleCompleted: () => void;
     handleDoubleClick: () => void;
+    completed: boolean;
 }
 
 export default class Label extends React.Component<Props> {
@@ -17,6 +18,7 @@ export default class Label extends React.Component<Props> {
                 type="checkbox"
                 name="toggleCompleted"
                 className="todo-list__toggle"
+                checked={this.props.completed}
                 onChange={ this.props.toggleCompleted }
             />
             <label

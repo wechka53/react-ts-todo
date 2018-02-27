@@ -54,6 +54,7 @@ export default class TodoItem extends React.Component<Props, State> {
                 {
                     !this.state.editing &&
                     <Label
+                        completed={ this.props.completed }
                         toggleCompleted={ this.toggleCompleted }
                         buttonClassNames={ buttonClassNames }
                         removeTodo={ this.handleRemoveItem }

@@ -1,6 +1,10 @@
 import * as React from 'react';
+
 import { LinkContainer } from 'containers/LinkContainer';
+
 import { FilterTypes } from 'types/filter';
+
+import './Footer.css';
 
 export default class Footer extends React.Component {
     render() {
