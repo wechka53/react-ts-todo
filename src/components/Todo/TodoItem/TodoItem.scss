@@ -4,13 +4,10 @@
   border-top: 0;
   height: 55px;
 
-  label {
-    display: inline-block;
-    font-size: 23px;
-    line-height: 55px;
-    padding: 0 50px;
-    text-align: left;
-    width: 100%;
+  &.completed {
+    & > * {
+      opacity: 0.5;
+    }
   }
 }
 

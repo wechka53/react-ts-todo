@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import TodoItem from 'components/Todo/TodoItem/TodoItem';
 import AddTodoForm from 'components/Todo/AddTodoForm/AddTodoForm';
+import Footer from 'components/Todo/Footer/Footer';
 
 import { TodoActionInterface, TodoInterface  } from 'types/todo';
 
@@ -37,6 +38,7 @@ export default class Todo extends React.Component<Props, State> {
                             )
                     }
                 </ul>
+                <Footer/>
             </div>
         );
     }

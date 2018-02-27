@@ -34,7 +34,10 @@ export default class TodoItem extends React.Component<Props, State> {
     render() {
         const liClassNames = classNames(
             'todo-list__item',
-            {editing: this.state.editing}
+            {
+                editing: this.state.editing,
+                completed: this.props.completed
+            }
         );
         const buttonClassNames = classNames(
             'destroy',
@@ -51,6 +54,7 @@ export default class TodoItem extends React.Component<Props, State> {
                 {
                     !this.state.editing &&
                     <Label
+                        toggleCompleted={ this.toggleCompleted }
                         buttonClassNames={ buttonClassNames }
                         removeTodo={ this.handleRemoveItem }
                         handleDoubleClick={ this.handleEdit }
@@ -78,6 +82,11 @@ export default class TodoItem extends React.Component<Props, State> {
     handleUpdateItem = (text: string): void => {
         const {id, completed} = this.props;
         this.props.updateTodo({id, text, completed});
+    }
+
+    toggleCompleted = (): void => {
+        const {id, text, completed} = this.props;
+        this.props.updateTodo({id, text, completed: !completed});
     }
 
     handleEdit = (state?: boolean): void => {
