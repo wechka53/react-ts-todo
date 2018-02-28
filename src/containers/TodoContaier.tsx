@@ -9,23 +9,44 @@ import { RootState } from 'types/store';
 import { Filter, FilterTypes } from 'types/filter';
 import { createSelector } from 'reselect';
 
+const logger = (type: string, cb: any) => {
+   console.log(type);
+   return cb;
+};
 
-const getTodos = (state: RootState) => state.todos;
-const getFilterType = (state: RootState) => state.filter;
+
+let allTodoSelector = (state: RootState) => state.todos;
+let activeTodoSelector = (state: RootState) => state.todos.filter(todo => !todo.completed);
+let completedTodoSelector = (state: RootState) => state.todos.filter(todo => todo.completed);
+let getFilterType = (state: RootState) => state.filter;
+
+allTodoSelector = logger('allTodoSelector', allTodoSelector);
+activeTodoSelector = logger('activeTodoSelector', activeTodoSelector);
+completedTodoSelector = logger('completedTodosSelector', completedTodoSelector);
+getFilterType = logger('getFilterType', getFilterType);
 
 const filterTodos = createSelector(
-    [getTodos, getFilterType],
-    (todos: TodoInterface[], filterType: Filter) => {
+    [
+        allTodoSelector,
+        activeTodoSelector,
+        completedTodoSelector,
+        getFilterType
+    ],
+    (all: TodoInterface[],
+     active: TodoInterface[],
+     completed: TodoInterface[],
+     filterType: Filter) => {
+        console.log(all, completed, active);
         switch (filterType) {
             case FilterTypes.SHOW_ALL:
                 console.log('pure');
-                return todos;
+                return all;
             case FilterTypes.SHOW_ACTIVE:
                 console.log('pure');
-                return todos.filter((todo: TodoInterface) => !todo.completed);
+                return active;
             case FilterTypes.SHOW_COMPLETED:
                 console.log('pure');
-                return todos.filter((todo: TodoInterface) => todo.completed);
+                return completed;
             default:
                 throw Error(`Incorrect filter  ${filterType}`);
         }
