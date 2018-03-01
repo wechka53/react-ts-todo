@@ -1,9 +1,5 @@
-import {
-    ADD_TODO,
-    REMOVE_TODO,
-    UPDATE_TODO
-} from 'constants/todo';
-import { Action } from 'redux';
+import { ADD_TODO, REMOVE_TODO, UPDATE_TODO } from 'constants/todo';
+import { Action }                             from 'redux';
 
 export interface TodoInterface {
     id: number;

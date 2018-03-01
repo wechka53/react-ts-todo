@@ -1,12 +1,12 @@
 declare let window: any;
 
-import { Provider } from 'react-redux';
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import { Provider }    from 'react-redux';
+import * as React      from 'react';
+import * as ReactDOM   from 'react-dom';
 import { createStore } from 'redux';
 
-import App from 'components/App/App';
-import rootReducer from 'redusers';
+import App                   from 'components/App/App';
+import rootReducer           from 'redusers';
 import registerServiceWorker from './registerServiceWorker';
 
 import './index.css';

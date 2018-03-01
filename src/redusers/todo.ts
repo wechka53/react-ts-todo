@@ -1,6 +1,6 @@
 import { ADD_TODO, initialTodoState, REMOVE_TODO, UPDATE_TODO } from 'constants/todo';
-import { TodoActionInterface, TodoInterface } from 'types/todo';
-import { generateId } from 'helpers/generateId';
+import { TodoActionInterface, TodoInterface }                   from 'types/todo';
+import { generateId }                                           from 'helpers/generateId';
 
 const actionsMap = {
     [ADD_TODO]: (state: TodoInterface[], action: TodoActionInterface): TodoInterface[] => {

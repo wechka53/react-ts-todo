@@ -1,14 +1,11 @@
-import * as React from 'react';
-
+import * as React        from 'react';
 import { LinkContainer } from 'containers/LinkContainer';
-
-import { FilterTypes } from 'types/filter';
-
+import { FilterTypes }   from 'types/filter';
 import './Footer.css';
 
 export default class Footer extends React.Component {
     render() {
-        return(
+        return (
             <div className="todo-list__footer">
                 <LinkContainer filter={ FilterTypes.SHOW_ALL }>
                     All

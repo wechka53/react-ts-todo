@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React                        from 'react';
 import { Filter, FilterActionInterface } from 'types/filter';
 
 interface Props {
@@ -11,20 +11,20 @@ export default class Link extends React.Component<Props> {
     render() {
         return (
             <>
-            {
-                !this.props.active &&
-                <a
-                    href="#"
-                    onClick={ this.handleOnclick }
-                >
-                    { this.props.children }
-                </a>
-            }
-            {
-                this.props.active &&
-                <span>{ this.props.children }</span>
+                {
+                    !this.props.active &&
+                    <a
+                        href="#"
+                        onClick={ this.handleOnclick }
+                    >
+                        { this.props.children }
+                    </a>
+                }
+                {
+                    this.props.active &&
+                    <span>{ this.props.children }</span>
 
-            }
+                }
             </>
         );
     }
@@ -32,5 +32,5 @@ export default class Link extends React.Component<Props> {
     handleOnclick = (event: React.MouseEvent<HTMLAnchorElement>) => {
         event.preventDefault();
         this.props.setVisibility();
-    }
+    };
 }
