@@ -1,5 +1,5 @@
 import { initialFilterState, SET_VISIBILITY } from 'constants/filter';
-import { Filter, FilterActionInterface } from 'types/filter';
+import { Filter, FilterActionInterface }      from 'types/filter';
 
 const actionsMap = {
     [SET_VISIBILITY]: (state: Filter, action: FilterActionInterface): Filter => action.filter

@@ -1,6 +1,6 @@
 import { ADD_TODO, REMOVE_TODO, UPDATE_TODO } from 'constants/todo';
 import { TodoActionInterface, TodoInterface } from 'types/todo';
-import { generateId } from 'helpers/generateId';
+import { generateId }                         from 'helpers/generateId';
 
 export const addTodo = (text: string): TodoActionInterface => {
     return {
@@ -20,7 +20,7 @@ export const updateTodo = (todo: TodoInterface): TodoActionInterface => {
     };
 };
 
-export const removeTodo  = (id: number): TodoActionInterface => {
+export const removeTodo = (id: number): TodoActionInterface => {
     return {
         type: REMOVE_TODO,
         id: id
