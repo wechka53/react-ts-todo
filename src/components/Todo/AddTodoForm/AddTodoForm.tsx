@@ -43,9 +43,9 @@ export default class AddTodoForm extends React.Component<Props, State> {
             return;
         }
 
-    }
+    };
 
     handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
         this.setState({value: event.currentTarget.value});
-    }
+    };
 }

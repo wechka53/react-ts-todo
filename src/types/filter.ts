@@ -2,6 +2,7 @@ import { SET_VISIBILITY } from 'constants/filter';
 
 export interface FilterActionInterface {
     type: SET_VISIBILITY;
+
     [key: string]: any;
 }
 
