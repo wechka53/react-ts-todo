@@ -6,8 +6,16 @@ import './App.css';
 
 const logo = require('../../logo.svg');
 
-class App extends React.Component {
+
+class App extends React.Component<any> {
+
+    constructor(props: any) {
+        super(props);
+        console.log(this);
+    }
     render() {
+
+
         return (
             <div className="App">
                 <header className="App-header">
@@ -15,7 +23,7 @@ class App extends React.Component {
                     <h1 className="App-title">Welcome to React</h1>
                 </header>
                 <div className="App-intro">
-                    <TodoContainer/>
+                    <TodoContainer filter={ this.props.match.params.filter }/>
                 </div>
             </div>
         );

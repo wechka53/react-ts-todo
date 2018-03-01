@@ -1,36 +1,19 @@
-import * as React                        from 'react';
-import { Filter, FilterActionInterface } from 'types/filter';
+import * as React                                     from 'react';
+import { Filter, FilterTypes } from 'types/filter';
+import { Link as RouterLink }                         from 'react-router-dom';
 
 interface Props {
-    active: boolean;
     filter: Filter;
-    setVisibility: () => FilterActionInterface;
 }
 
 export default class Link extends React.Component<Props> {
     render() {
         return (
-            <>
-                {
-                    !this.props.active &&
-                    <a
-                        href="#"
-                        onClick={ this.handleOnclick }
-                    >
-                        { this.props.children }
-                    </a>
-                }
-                {
-                    this.props.active &&
-                    <span>{ this.props.children }</span>
-
-                }
-            </>
+            <RouterLink
+                to={ this.props.filter === FilterTypes.SHOW_ALL ? '/' : this.props.filter }
+            >
+                { this.props.children }
+            </RouterLink>
         );
     }
-
-    handleOnclick = (event: React.MouseEvent<HTMLAnchorElement>) => {
-        event.preventDefault();
-        this.props.setVisibility();
-    };
 }
